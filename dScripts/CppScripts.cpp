@@ -332,6 +332,65 @@
 #include <string>
 #include <functional>
 
+// Fire Temple
+#include "FtZoneControl.h"
+#include "FtVanity.h"
+#include "FtLeg.h"
+#include "FtLegTimed.h"
+#include "FtMovingDoor.h"
+#include "FtMovingDoorPagodas.h"
+#include "FtMovingDoor4Statues.h"
+#include "FtMovingDoorMillstone.h"
+#include "FtMovingDoor8Spinners.h"
+#include "FtWavesManager.h"
+#include "ElevatorSpinner.h"
+#include "BladesKillcountEvent.h"
+#include "Spinner06.h"
+#include "Spinner11.h"
+#include "Spinner20.h"
+#include "Seesaw08.h"
+#include "Seesaw09.h"
+#include "BaseInteractDropLootChest.h"
+#include "InstanceDragon.h"
+#include "Spinner22.h"
+#include "Spinner23.h"
+#include "Spinner24.h"
+#include "Spinner25.h"
+#include "Spinner26.h"
+#include "Spinner27.h"
+#include "Spinner28.h"
+#include "Spinner29.h"
+#include "NjLightningDragonPetServer.h"
+#include "NjLightningPetServer.h"
+#include "NjIceDragonPetServer.h"
+#include "NjIcePetServer.h"
+#include "NjFireDragonPetServer.h"
+#include "NjFirePetServer.h"
+#include "DoorIndicatorServer.h"
+#include "SpawnerSpinner30.h"
+#include "Spinner33.h"
+#include "Spinner34.h"
+#include "Spinner38.h"
+#include "Spinner39.h"
+#include "Spinner40.h"
+#include "Spinner41.h"
+#include "FtFlameJetServer.h"
+#include "TiersKillcountEvent.h"
+#include "Spinner47.h"
+#include "Spinner48.h"
+#include "Spinner49.h"
+#include "Spinner53.h"
+#include "Spinner55.h"
+#include "MillstoneA.h"
+#include "MillstoneB.h"
+#include "MillstoneC.h"
+#include "Spinner69.h"
+#include "Button70.h"
+#include "SpawnerSpinner71.h"
+#include "FtMillstoneCinematic.h"
+#include "FtLowBlades.h"
+#include "SpawnerSpinner85.h"
+
 namespace {
 	// This is in the translation unit instead of the header to prevent weird linker errors
 	InvalidScript InvalidToReturn;
@@ -687,6 +746,67 @@ namespace {
 		{"scripts\\zone\\LUPs\\RobotCity Intro\\WBL_RCIntro_RobotCitizenRed.lua", []() {return new WblRobotCitizen();}},
 		{"scripts\\zone\\LUPs\\RobotCity Intro\\WBL_RCIntro_RobotCitizenYellow.lua", []() {return new WblRobotCitizen();}},
 
+
+		//Fire Temple
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_ZONE_FIRE_TEMPLE_SERVER.lua", []() { return new FtZoneControl(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_VANITY.lua", []() { return new FtVanity(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_LEG.lua", []() { return new FtLeg(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_LEG_TIMED.lua", []() { return new FtLegTimed(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MOVING_DOOR.lua", []() { return new FtMovingDoor(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MOVING_DOOR_PAGODAS.lua", []() { return new FtMovingDoorPagodas(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MOVING_DOOR_4STATUES.lua", []() { return new FtMovingDoor4Statues(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MOVING_DOOR_MILLSTONE.lua", []() { return new FtMovingDoorMillstone(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MOVING_DOOR_8SPINNERS.lua", []() { return new FtMovingDoor8Spinners(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_WAVES_MANAGER_SERVER.lua", []() { return new FtWavesManager(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_BASE_INTERACT_DROP_LOOT_CHEST.lua", []() { return new BaseInteractDropLootChest(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER11.lua", []() { return new Spinner11(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER20.lua", []() { return new Spinner20(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_BLADES_KILLCOUNT_EVENT.lua", []() { return new BladesKillcountEvent(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_ELEVATORSPINNER.lua", []() { return new ElevatorSpinner(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SEESAW08.lua", []() { return new SeeSaw08(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SEESAW09.lua", []() { return new SeeSaw09(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER06.lua", []() { return new Spinner06(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPAWN_LIGHTNING_PET_SERVER.lua", []() { return new NjLightningDragonPetServer(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_LIGHTNING_PET_SERVER.lua", []() { return new NjLightningPetServer(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPAWN_ICE_PET_SERVER.lua", []() { return new NjIceDragonPetServer(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_ICE_PET_SERVER.lua", []() { return new NjIcePetServer(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPAWN_FIRE_PET_SERVER.lua", []() { return new NjFireDragonPetServer(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_FIRE_PET_SERVER.lua", []() { return new NjFirePetServer(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_INSTANCE_DRAGON.lua", []() { return new InstanceDragon(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER22.lua", []() { return new Spinner22(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER23.lua", []() { return new Spinner23(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER24.lua", []() { return new Spinner24(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER25.lua", []() { return new Spinner25(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER26.lua", []() { return new Spinner26(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER27.lua", []() { return new Spinner27(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER28.lua", []() { return new Spinner28(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER29.lua", []() { return new Spinner29(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_DOOR_INDICATOR_SERVER.lua", []() { return new DoorIndicatorServer(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPAWNER_SPINNER30.lua", []() { return new SpawnerSpinner30(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER33.lua", []() { return new Spinner33(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER34.lua", []() { return new Spinner34(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER38.lua", []() { return new Spinner38(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER39.lua", []() { return new Spinner39(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER40.lua", []() { return new Spinner40(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER41.lua", []() { return new Spinner41(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_FLAME_JET_SERVER.lua", []() { return new FtFlameJetServer(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_3TIER_KILLCOUNT_EVENT.lua", []() { return new TiersKillcountEvent(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER47.lua", []() { return new Spinner47(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER48.lua", []() { return new Spinner48(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER49.lua", []() { return new Spinner49(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER53.lua", []() { return new Spinner53(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER55.lua", []() { return new Spinner55(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MILLSTONEA.lua", []() { return new MillstoneA(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MILLSTONEB.lua", []() { return new MillstoneB(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MILLSTONEC.lua", []() { return new MillstoneC(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER69.lua", []() { return new Spinner69(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_BUTTON70.lua", []() { return new Button70(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPAWNER_SPINNER71.lua", []() { return new SpawnerSpinner71(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MILLSTONE_CINEMATIC.lua", []() { return new FtMillstoneCinematic(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_LOWBLADES.lua", []() { return new FtLowBlades(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPAWNER_SPINNER85.lua", []() { return new SpawnerSpinner85(); } },
+		
+		
 	};
 };
 

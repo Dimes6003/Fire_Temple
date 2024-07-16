@@ -48,37 +48,28 @@ void FtMovingDoor4Statues::OnFireEventServerSide(Entity* self, Entity* sender, s
 
 
 			//Distribute cinematics & audio
-			//Still give players the cine if they leave the room but don't fuck with audio
 			//Their current musiccue state is unknown beyond the room << maybe there's a way to pull it from client...?
 			const auto& cine = u"4StatuesComplete";	
 			auto* proximityMonitorComponent = self->GetComponent<ProximityMonitorComponent>();						
 			self->SetNetworkVar(u"flourishready", 1);
 
 			
-			
-			if (player1 != nullptr) {
+			self->AddTimer("PlayerFlourish", 2.5f);
+			if (player1 != nullptr && proximityMonitorComponent->IsInProximity("fetch_players", player1->GetObjectID())) {
 				GameMessages::SendPlayCinematic(player1->GetObjectID(), cine, player1->GetSystemAddress());			
-				if (proximityMonitorComponent->IsInProximity("fetch_players", player1->GetObjectID())) {
-					self->AddTimer("Player1Flourish", 2.5f);
-				}
+
 			}
-			if (player2 != nullptr) {			
+			if (player2 != nullptr && proximityMonitorComponent->IsInProximity("fetch_players", player2->GetObjectID())) {			
 				GameMessages::SendPlayCinematic(player2->GetObjectID(), cine, player2->GetSystemAddress());	
-				if (proximityMonitorComponent->IsInProximity("fetch_players", player2->GetObjectID())) {
-					self->AddTimer("Player2Flourish", 2.5f);
-				}
+
 			}
-			if (player3 != nullptr) {		
+			if (player3 != nullptr && proximityMonitorComponent->IsInProximity("fetch_players", player3->GetObjectID())) {		
 				GameMessages::SendPlayCinematic(player3->GetObjectID(), cine, player3->GetSystemAddress());	
-				if (proximityMonitorComponent->IsInProximity("fetch_players", player3->GetObjectID())) {
-					self->AddTimer("Player3Flourish", 2.5f);
-				}	
+	
 			}
-			if (player4 != nullptr) {				
+			if (player4 != nullptr && proximityMonitorComponent->IsInProximity("fetch_players", player4->GetObjectID())) {				
 				GameMessages::SendPlayCinematic(player4->GetObjectID(), cine, player4->GetSystemAddress());	
-				if (proximityMonitorComponent->IsInProximity("fetch_players", player4->GetObjectID())) {
-					self->AddTimer("Player4Flourish", 2.5f);
-				}	
+	
 			}			
 			//end
 			
@@ -90,17 +81,9 @@ void FtMovingDoor4Statues::OnFireEventServerSide(Entity* self, Entity* sender, s
 
 void FtMovingDoor4Statues::OnTimerDone(Entity* self, std::string timerName) {
 	
-	if (timerName == "Player1Flourish") {	
-		GameMessages::SendPlayNDAudioEmitter(player1, player1->GetSystemAddress(), "{a4f234db-5b30-47e5-b41c-4d71c4d2ae0f}");		
-	}		
-	if (timerName == "Player2Flourish") {	
-		GameMessages::SendPlayNDAudioEmitter(player2, player2->GetSystemAddress(), "{a4f234db-5b30-47e5-b41c-4d71c4d2ae0f}");	
-	}	
-	if (timerName == "Player3Flourish") {	
-		GameMessages::SendPlayNDAudioEmitter(player3, player3->GetSystemAddress(), "{a4f234db-5b30-47e5-b41c-4d71c4d2ae0f}");			
-	}	
-	if (timerName == "Player4Flourish") {	
-		GameMessages::SendPlayNDAudioEmitter(player4, player4->GetSystemAddress(), "{a4f234db-5b30-47e5-b41c-4d71c4d2ae0f}");		
+
+	if (timerName == "PlayerFlourish") {	
+		self->SetNetworkVar(u"triggermusic", 1);		
 	}	
 	
 }

@@ -274,25 +274,25 @@ void ElevatorSpinner::OnTimerDone(Entity* self, std::string timerName) {
 	
 //	Flourish timers	
 	if (timerName == "FlourishLowMed") {
-		GameMessages::SendPlayNDAudioEmitter(caster1, caster1->GetSystemAddress(), "{72e4fbd0-0320-4c80-8648-8c4c4912dee2}");
+		self->SetNetworkVar(u"flourishlowmed", 1);	
 	}
 	if (timerName == "FlourishLowShort") {
-		GameMessages::SendPlayNDAudioEmitter(caster1, caster1->GetSystemAddress(), "{ecd51834-d9fd-4410-a01b-543cfb2f120d}");
+		self->SetNetworkVar(u"flourishlowshort", 1);	
 	}	
 	if (timerName == "FlourishLowShortFinal") {
-		GameMessages::SendPlayNDAudioEmitter(caster1, caster1->GetSystemAddress(), "{9e9f25b9-1e46-4095-87b5-7695c1b0f0f3}");
+		self->SetNetworkVar(u"flourishlowshortfinal", 1);	
 	}	
 	if (timerName == "FlourishMidShort") {
-		GameMessages::SendPlayNDAudioEmitter(caster1, caster1->GetSystemAddress(), "{a4f234db-5b30-47e5-b41c-4d71c4d2ae0f}");
+		self->SetNetworkVar(u"flourishmidshort", 1);	
 	}	
 	if (timerName == "FlourishMidShort2") {
-		GameMessages::SendPlayNDAudioEmitter(caster1, caster1->GetSystemAddress(), "{5e413571-897f-4ab7-90f4-22cf963f6d32}");
+		self->SetNetworkVar(u"flourishmidshort2", 1);
 	}	
 	if (timerName == "FlourishMidMed") {
-		GameMessages::SendPlayNDAudioEmitter(caster1, caster1->GetSystemAddress(), "{8806d211-733f-48af-920e-f31390ddbeb9}");
+		self->SetNetworkVar(u"flourishmidmed", 1);
 	}
 	if (timerName == "FlourishMidMed2") {
-		GameMessages::SendPlayNDAudioEmitter(caster1, caster1->GetSystemAddress(), "{fa11e2dd-944b-4238-9f96-d9c30aada0b0}");
+		self->SetNetworkVar(u"flourishmidmed2", 1);
 	}	
 
 //End

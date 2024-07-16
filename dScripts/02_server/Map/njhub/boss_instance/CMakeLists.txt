@@ -19,6 +19,7 @@ set(DSCRIPTS_SOURCES_02_SERVER_MAP_NJHUB_BOSS_INSTANCE
 	"FtMovingDoor4Statues.cpp"
 	"FtMovingDoorMillstone.cpp"
 	"FtMovingDoor8Spinners.cpp"
+	"FtMovingDoorWaves.cpp"
 	"FtLowBlades.cpp"
 	"FtWavesManager.cpp"
     	"ElevatorSpinner.cpp"
@@ -60,5 +61,5 @@ set(DSCRIPTS_SOURCES_02_SERVER_MAP_NJHUB_BOSS_INSTANCE
     	"Spinner69.cpp"
     	"Button70.cpp"
     	"SpawnerSpinner71.cpp"
-    	"SpawnerSpinner85.cpp"
+    	"ElevatorSpinner91.cpp"
 	PARENT_SCOPE)

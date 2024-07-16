@@ -192,31 +192,11 @@ void SpawnerSpinner71::OnChildRemoved(Entity* self, Entity* child) {
 
 	if (legTable.empty()) {
 		
-//		start audio sequence for proper players
-		auto* proximityMonitorComponent = self->GetComponent<ProximityMonitorComponent>();		
+//		start audio sequence for proper players	
 
 		self->SetNetworkVar(u"flourishcue", 1);
-//		self->AddTimer("FlourishHigh", 3.3f);	
-		if (player1 != nullptr) {
-			if (proximityMonitorComponent->IsInProximity("fetch_players", player1->GetObjectID())) { 
-				self->AddTimer("Player1Flourish", 4.8f);	
-			}
-		}
-		if (player2 != nullptr) {
-			if (proximityMonitorComponent->IsInProximity("fetch_players", player2->GetObjectID())) { 
-				self->AddTimer("Player2Flourish", 4.8);	
-			}
-		}
-		if (player3 != nullptr) {
-			if (proximityMonitorComponent->IsInProximity("fetch_players", player3->GetObjectID())) { 
-				self->AddTimer("Player3Flourish", 4.8f);	
-			}
-		}
-		if (player4 != nullptr) {
-			if (proximityMonitorComponent->IsInProximity("fetch_players", player4->GetObjectID())) { 
-				self->AddTimer("Player4Flourish", 4.8f);	
-			}
-		}		
+		self->AddTimer("PlayerFlourish", 4.8f);	
+	
 		
 //		Start spawner		
 		if (IsActivated == 0) {
@@ -239,23 +219,9 @@ void SpawnerSpinner71::OnChildRemoved(Entity* self, Entity* child) {
 
 void SpawnerSpinner71::OnTimerDone(Entity* self, std::string timerName) {
 		
-	auto* FlourishHighGUID = "{e96c385e-8e5f-4de3-8784-32fc50df91df}";
-	auto* proximityMonitorComponent = self->GetComponent<ProximityMonitorComponent>();		
-	if (timerName == "Player1Flourish" && 
-	proximityMonitorComponent->IsInProximity("fetch_players", player1->GetObjectID())) {	
-		GameMessages::SendPlayNDAudioEmitter(player1, player1->GetSystemAddress(), FlourishHighGUID);			
-	}
-	if (timerName == "Player2Flourish" && 
-	proximityMonitorComponent->IsInProximity("fetch_players", player2->GetObjectID())) {	
-		GameMessages::SendPlayNDAudioEmitter(player2, player2->GetSystemAddress(), FlourishHighGUID);			
-	}
-	if (timerName == "Player3Flourish" && 
-	proximityMonitorComponent->IsInProximity("fetch_players", player3->GetObjectID())) {	
-		GameMessages::SendPlayNDAudioEmitter(player3, player3->GetSystemAddress(), FlourishHighGUID);			
-	}
-	if (timerName == "Player4Flourish" && 
-	proximityMonitorComponent->IsInProximity("fetch_players", player4->GetObjectID())) {	
-		GameMessages::SendPlayNDAudioEmitter(player4, player4->GetSystemAddress(), FlourishHighGUID);			
+
+	if (timerName == "PlayerFlourish") {	
+		self->SetNetworkVar(u"triggerflourish", 1);			
 	}	
 	
 	

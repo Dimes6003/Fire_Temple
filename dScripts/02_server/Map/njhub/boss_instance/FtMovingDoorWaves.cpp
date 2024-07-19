@@ -13,7 +13,7 @@ void FtMovingDoorWaves::OnStartup(Entity* self) {
 	self->SetVar(u"bActive", false);
 
 
-	self->AddTimer("CheckActive", 13);
+	self->AddTimer("CheckActive", 24.9f);
 }
 
 void FtMovingDoorWaves::SpawnLegs(Entity* self, const std::string& loc) {

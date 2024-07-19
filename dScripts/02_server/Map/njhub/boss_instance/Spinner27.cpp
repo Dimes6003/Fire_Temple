@@ -41,7 +41,7 @@ void Spinner27::OnSkillEventFired(Entity* self, Entity* caster, const std::strin
 void Spinner27::TriggerDrill(Entity* self) {
 	
 	GameMessages::SendPlatformResync(self, UNASSIGNED_SYSTEM_ADDRESS, true, 0, 1);	
-	self->AddTimer("Return", 15.0f);		
+	self->AddTimer("Return", 11.0f);		
 	self->AddTimer("IdleAnim", 1.0f);
 	RenderComponent::PlayAnimation(self, u"up");
 	

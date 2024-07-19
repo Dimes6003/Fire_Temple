@@ -389,7 +389,6 @@
 #include "SpawnerSpinner71.h"
 #include "FtMillstoneCinematic.h"
 #include "FtLowBlades.h"
-#include "SpawnerSpinner85.h"
 
 namespace {
 	// This is in the translation unit instead of the header to prevent weird linker errors
@@ -804,7 +803,6 @@ namespace {
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPAWNER_SPINNER71.lua", []() { return new SpawnerSpinner71(); } },
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MILLSTONE_CINEMATIC.lua", []() { return new FtMillstoneCinematic(); } },
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_LOWBLADES.lua", []() { return new FtLowBlades(); } },
-		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPAWNER_SPINNER85.lua", []() { return new SpawnerSpinner85(); } },
 		
 		
 	};

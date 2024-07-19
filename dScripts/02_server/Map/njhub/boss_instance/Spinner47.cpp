@@ -14,7 +14,7 @@
 void Spinner47::OnStartup(Entity* self) {
 	
 
-	self->AddTimer("MoveBack", 11.8f);
+	self->AddTimer("MoveBack", 21.8f);
 
 
 	self->SetNetworkVar(u"bIsInUse", false);

@@ -13,7 +13,7 @@
 void Spinner27::OnStartup(Entity* self) {
 	m_Counter = 0;	
 	self->SetProximityRadius(5.9, "damage_distance");	
-	self->AddTimer("MoveBack", 11.8f);	
+	self->AddTimer("MoveBack", 20.8f);	
 	self->SetNetworkVar(u"bIsInUse", false);
 	self->SetVar(u"bActive", true);
 

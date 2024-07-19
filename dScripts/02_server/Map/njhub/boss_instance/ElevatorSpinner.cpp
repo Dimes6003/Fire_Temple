@@ -20,13 +20,11 @@ void ElevatorSpinner::OnStartup(Entity* self) {
 	
 //	Move entrance spinner sooner to look nice
 
-	if (AttachedPath == u"ZSpinner01") {
-    // Move entrance spinner sooner to look nice
-		self->AddTimer("MoveBack", 9.9f);
-		self->AddTimer("MoveBack", 10.8f);
-	} else {
-		self->AddTimer("MoveBack", 11.3f);		
-		self->AddTimer("MoveBack", 15.9f);	
+	if (AttachedPath == u"ZSpinner01" || AttachedPath == u"ZSpinner07") {
+    // entrance spinnes inversed for immediate pathing
+		GameMessages::SendPlatformResync(self, UNASSIGNED_SYSTEM_ADDRESS, true, 0, 1, 1, eMovementPlatformState::Moving);
+	} else {	
+		self->AddTimer("MoveBack", 21.3f);	
 	}
 	
 //	End	
@@ -138,9 +136,14 @@ void ElevatorSpinner::OnSkillEventFired(Entity* self, Entity* caster, const std:
 
 void ElevatorSpinner::TriggerDrill(Entity* self) {
 	
+	const auto AttachedPath = self->GetVar<std::u16string>(u"attached_path");
 //	Move spinner	
-	GameMessages::SendPlatformResync(self, UNASSIGNED_SYSTEM_ADDRESS, true, 0, 1);
-
+	if (AttachedPath == u"ZSpinner01" || AttachedPath == u"ZSpinner07") {
+    // entrance spinners inversed for immediate pathing
+		GameMessages::SendPlatformResync(self, UNASSIGNED_SYSTEM_ADDRESS, true, 1, 0, 0, eMovementPlatformState::Moving);
+	} else {
+		GameMessages::SendPlatformResync(self, UNASSIGNED_SYSTEM_ADDRESS, true, 0, 1);
+	}
 //	Play anim	
 	RenderComponent::PlayAnimation(self, u"up");
 	

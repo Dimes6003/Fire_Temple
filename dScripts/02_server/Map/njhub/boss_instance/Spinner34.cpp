@@ -30,7 +30,7 @@ void Spinner34::OnStartup(Entity* self) {
 	self->SetProximityRadius(5.9, "damage_distance");	
 	
 //	Force spinner to proper waypoint	
-	self->AddTimer("MoveBack", 11.8f);
+	self->AddTimer("MoveBack", 23);
 }
 
 void Spinner34::SpawnLegs(Entity* self, const std::string& loc) {

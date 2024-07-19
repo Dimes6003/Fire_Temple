@@ -10,7 +10,7 @@
 #include "eStateChangeType.h"
 
 void SeeSaw08::OnStartup(Entity* self) {
-	self->AddTimer("MoveBack", 11.9f);
+	self->AddTimer("MoveBack", 21.9f);
 	self->SetProximityRadius(3.5, "spin_distance");
 }
 

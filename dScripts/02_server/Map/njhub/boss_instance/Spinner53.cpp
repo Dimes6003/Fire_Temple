@@ -16,9 +16,8 @@
 #include "Entity.h"
 
 void Spinner53::OnStartup(Entity* self) {
-	m_Counter = 0;		
-	forcedown = 1;	
-	GameMessages::SendPlatformResync(self, UNASSIGNED_SYSTEM_ADDRESS, true, 0, 1, 1, eMovementPlatformState::Moving);	
+	m_Counter = 0;	
+	forcedown = 1;
 	
 	self->SetNetworkVar(u"bIsInUse", false);
 	self->SetVar(u"bActive", true);
@@ -29,8 +28,7 @@ void Spinner53::OnStartup(Entity* self) {
 	auto* proximityMonitorComponent = self->GetComponent<ProximityMonitorComponent>();
 	self->SetProximityRadius(5.9, "damage_distance");	
 	
-//	Force spinner to proper waypoint	
-	self->AddTimer("MoveBack", 11.8f);
+
 }
 
 void Spinner53::SpawnLegs(Entity* self, const std::string& loc) {
@@ -126,7 +124,7 @@ void Spinner53::OnChildRemoved(Entity* self, Entity* child) {
 //		m_Counter = 1;	
 		forcedown = 0;
 		self->CancelTimer("IdleDown");		
-		GameMessages::SendPlatformResync(self, UNASSIGNED_SYSTEM_ADDRESS, true, 0, 1, 1, eMovementPlatformState::Moving);
+		GameMessages::SendPlatformResync(self, UNASSIGNED_SYSTEM_ADDRESS, true, 1, 0, 0, eMovementPlatformState::Moving);
 		
 		RenderComponent::PlayAnimation(self, u"up");
 		self->CancelTimer("RespawnLeg");	
@@ -206,7 +204,7 @@ void Spinner53::OnTimerDone(Entity* self, std::string timerName) {
 	
 	if (timerName == "ReturnDown") {	
 		m_Counter = 0;
-		GameMessages::SendPlatformResync(self, UNASSIGNED_SYSTEM_ADDRESS, true, 1, 0, 0, eMovementPlatformState::Moving);
+		GameMessages::SendPlatformResync(self, UNASSIGNED_SYSTEM_ADDRESS, true, 0, 1, 1, eMovementPlatformState::Moving);
 	
 		RenderComponent::PlayAnimation(self, u"down");	
 		self->AddTimer("ForceDown", 1.0f);	
@@ -260,11 +258,7 @@ void Spinner53::OnTimerDone(Entity* self, std::string timerName) {
 		self->SetProximityRadius(5.9, "damage_distance");			
 	}	
 
-	if (timerName == "MoveBack") {	
-		m_Counter = 0;	
-		forcedown = 1;
-		GameMessages::SendPlatformResync(self, UNASSIGNED_SYSTEM_ADDRESS, true, 1, 0, 0, eMovementPlatformState::Moving);	
-	}
+
 	
 	if (timerName == "ForceDown") {	
 		forcedown = 1;

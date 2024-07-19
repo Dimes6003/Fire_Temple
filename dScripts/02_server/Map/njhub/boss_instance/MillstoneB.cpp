@@ -15,7 +15,11 @@ void MillstoneB::OnStartup(Entity* self) {
 	self->SetNetworkVar(u"bIsInUse", false);
 	self->SetVar(u"bActive", true);
 
-	self->AddTimer("InitialMove", 11.9f);	
+
+	z_CurrentWaypoint = 0;	
+	z_NextWaypoint = 1;	
+		
+	self->AddTimer("InitialMove", 19.9f);	
 
 	SpawnLegs(self, "B");
 }

@@ -22,8 +22,7 @@ void Spinner29::OnStartup(Entity* self) {
 	GameMessages::SendPlatformResync(self, UNASSIGNED_SYSTEM_ADDRESS, true, 0, 1);
 
 	self->SetProximityRadius(3.5, "spin_distance");
-	self->AddTimer("IdleAnim", 12.0f);
-	self->AddTimer("MoveBack", 11.9f);	
+	self->AddTimer("MoveBack", 21.9f);	
 }
 
 void Spinner29::OnSkillEventFired(Entity* self, Entity* caster, const std::string& message) {

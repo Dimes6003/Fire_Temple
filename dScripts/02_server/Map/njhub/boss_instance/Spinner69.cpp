@@ -17,7 +17,7 @@ void Spinner69::OnStartup(Entity* self) {
 	self->SetNetworkVar(u"bIsInUse", false);
 	self->SetVar(u"bActive", true);
 
- 	self->AddTimer("MoveDown", 11.9f);	
+ 	self->AddTimer("MoveDown", 23.1f);	
 
 	SpawnLegs(self, "Rear");
 }

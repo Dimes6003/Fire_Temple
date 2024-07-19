@@ -342,6 +342,7 @@
 #include "FtMovingDoor4Statues.h"
 #include "FtMovingDoorMillstone.h"
 #include "FtMovingDoor8Spinners.h"
+#include "FtMovingDoorWaves.h"
 #include "FtWavesManager.h"
 #include "ElevatorSpinner.h"
 #include "BladesKillcountEvent.h"
@@ -389,6 +390,7 @@
 #include "SpawnerSpinner71.h"
 #include "FtMillstoneCinematic.h"
 #include "FtLowBlades.h"
+#include "ElevatorSpinner91.h"
 
 namespace {
 	// This is in the translation unit instead of the header to prevent weird linker errors
@@ -756,6 +758,7 @@ namespace {
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MOVING_DOOR_4STATUES.lua", []() { return new FtMovingDoor4Statues(); } },
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MOVING_DOOR_MILLSTONE.lua", []() { return new FtMovingDoorMillstone(); } },
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MOVING_DOOR_8SPINNERS.lua", []() { return new FtMovingDoor8Spinners(); } },
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MOVING_DOOR_WAVES.lua", []() { return new FtMovingDoorWaves(); } },		
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_WAVES_MANAGER_SERVER.lua", []() { return new FtWavesManager(); } },
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_BASE_INTERACT_DROP_LOOT_CHEST.lua", []() { return new BaseInteractDropLootChest(); } },
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPINNER11.lua", []() { return new Spinner11(); } },
@@ -803,7 +806,7 @@ namespace {
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_SPAWNER_SPINNER71.lua", []() { return new SpawnerSpinner71(); } },
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MILLSTONE_CINEMATIC.lua", []() { return new FtMillstoneCinematic(); } },
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_LOWBLADES.lua", []() { return new FtLowBlades(); } },
-		
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_ELEVATORSPINNER91.lua", []() { return new ElevatorSpinner91(); } },		
 		
 	};
 };

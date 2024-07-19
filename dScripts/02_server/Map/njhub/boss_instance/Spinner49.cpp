@@ -13,7 +13,7 @@
 void Spinner49::OnStartup(Entity* self) {
 	self->SetNetworkVar(u"bIsInUse", false);
 	self->SetVar(u"bActive", true);
-	self->AddTimer("MoveUp", 11.9f);	
+	self->AddTimer("MoveUp", 22.9f);	
 	SpawnLegs(self, "Inverse");	
 }
 

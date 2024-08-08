@@ -392,6 +392,11 @@
 #include "FtLowBlades.h"
 #include "ElevatorSpinner91.h"
 
+#include "FtGarmadonTornado.h"
+#include "FtBossManager.h"
+#include "FtBossActivators.h"
+
+
 namespace {
 	// This is in the translation unit instead of the header to prevent weird linker errors
 	InvalidScript InvalidToReturn;
@@ -807,7 +812,9 @@ namespace {
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_MILLSTONE_CINEMATIC.lua", []() { return new FtMillstoneCinematic(); } },
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_LOWBLADES.lua", []() { return new FtLowBlades(); } },
 		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_ELEVATORSPINNER91.lua", []() { return new ElevatorSpinner91(); } },		
-		
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_BOSS_GARMADON_TORNADO.lua", []() { return new FtGarmadonTornado(); } },		
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_BOSS_MANAGER_SERVER.lua", []() { return new FtBossManager(); } },		
+		{ "scripts\\02_server\\Map\\njhub\\boss_instance\\L_BOSS_ACTIVATORS_SERVER.lua", []() { return new FtBossActivators(); } },			
 	};
 };
 

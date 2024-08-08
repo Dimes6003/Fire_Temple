@@ -35,7 +35,7 @@ void ElevatorSpinner::OnStartup(Entity* self) {
 //	Give legs to decoy spinners	
 	auto isDecoy = self->GetVar<int32_t>(u"isDecoy");
 	if (isDecoy >= 1) {
-		self->AddTimer("SpawnLeg", 12.9f);	
+		self->AddTimer("SpawnLeg", 25);	
 	}
 
 	self->SetProximityRadius(3.5, "spin_distance");

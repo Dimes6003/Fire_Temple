@@ -11,6 +11,12 @@ set(DSCRIPTS_SOURCES_02_SERVER_MAP_NJHUB_BOSS_INSTANCE
 
 	"FtZoneControl.cpp"
 
+
+	"FtGarmadonTornado.cpp"
+	"FtBossManager.cpp"
+	"FtBossActivators.cpp"
+
+
 	"FtVanity.cpp"
 	"FtLeg.cpp"
 	"FtLegTimed.cpp"

@@ -21,6 +21,8 @@ private:
     static Entity* player3;
     static Entity* player4;
 
-    int PlayerCount;
+	int PlayerCount;
+
+	int BossPlayerCount;
 
 };

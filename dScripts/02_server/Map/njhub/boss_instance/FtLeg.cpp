@@ -6,12 +6,7 @@
 #include "MissionComponent.h"
 #include "EntityInfo.h"
 #include "RenderComponent.h"
-#include "eStateChangeType.h"
-#include "ScriptedActivityComponent.h"
-#include "TeamManager.h"
 #include "EntityManager.h"
-#include "Loot.h"
-#include "TreasureChestDragonServer.h"
 #include "eMissionTaskType.h"
 
 void FtLeg::OnStartup(Entity* self) {

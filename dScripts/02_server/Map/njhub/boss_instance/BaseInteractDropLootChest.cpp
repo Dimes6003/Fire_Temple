@@ -8,7 +8,7 @@ void BaseInteractDropLootChest::OnUse(Entity* self, Entity* user) {
 
 void BaseInteractDropLootChest::BaseUse(Entity* self, Entity* user) {
 	auto cooldownTime = self->GetVar<float>(u"cooldownTime");
-	if (cooldownTime == 0) cooldownTime = 39893;
+	if (cooldownTime == 0) cooldownTime = 59893;
 
 	uint32_t lootMatrix = self->GetVar<int32_t>(u"UseLootMatrix");
 	if (lootMatrix == 0) lootMatrix = self->GetVar<int32_t>(u"smashable_loot_matrix");

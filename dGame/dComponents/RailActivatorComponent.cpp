@@ -59,6 +59,10 @@ void RailActivatorComponent::OnUse(Entity* originator) {
 		GameMessages::SendPlayFXEffect(originator->GetObjectID(), m_StartEffect.first, m_StartEffect.second,
 			std::to_string(m_StartEffect.first));
 	}
+
+//	Start sound 
+	std::string StartSoundString(m_StartSound.begin(), m_StartSound.end());		
+	GameMessages::SendPlayNDAudioEmitter(originator, UNASSIGNED_SYSTEM_ADDRESS, StartSoundString);	
 	
 	float animationLength = 0.5f;
 	if (!m_StartAnimation.empty()) {
@@ -98,6 +102,10 @@ void RailActivatorComponent::OnRailMovementReady(Entity* originator) const {
 		if (!m_LoopEffect.second.empty()) {
 			GameMessages::SendPlayFXEffect(originator->GetObjectID(), m_LoopEffect.first, m_LoopEffect.second,
 				std::to_string(m_LoopEffect.first));
+
+//			Start looping sound 
+			std::string loopSoundString(m_loopSound.begin(), m_loopSound.end());		
+			GameMessages::SendPlayNDAudioEmitter(originator, UNASSIGNED_SYSTEM_ADDRESS, loopSoundString);				
 		}
 
 		if (!m_LoopAnimation.empty()) {
@@ -127,12 +135,20 @@ void RailActivatorComponent::OnCancelRailMovement(Entity* originator) {
 		// Stop the looping effects
 		if (!m_LoopEffect.second.empty()) {
 			GameMessages::SendStopFXEffect(originator, false, std::to_string(m_LoopEffect.first));
+
+//			Stop looping sound 
+			std::string loopSoundString(m_loopSound.begin(), m_loopSound.end());		
+			GameMessages::SendStopNDAudioEmitter(originator, UNASSIGNED_SYSTEM_ADDRESS, loopSoundString);				
 		}
 
 		// Start the end effects
 		if (!m_StopEffect.second.empty()) {
 			GameMessages::SendPlayFXEffect(originator->GetObjectID(), m_StopEffect.first, m_StopEffect.second,
 				std::to_string(m_StopEffect.first));
+
+//			Start stop sound 
+			std::string StopSoundString(m_StopSound.begin(), m_StopSound.end());		
+			GameMessages::SendPlayNDAudioEmitter(originator, UNASSIGNED_SYSTEM_ADDRESS, StopSoundString);			
 		}
 
 		if (!m_StopAnimation.empty()) {

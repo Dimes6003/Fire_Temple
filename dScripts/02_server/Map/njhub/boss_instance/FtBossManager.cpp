@@ -411,8 +411,8 @@ void FtBossManager::SpinnerEnemies(Entity* self) {
         {
             {"marksman", 2, 2, 16849},
             {"beetle", 1, 1, 13998},
-            {"blacksmith", 2, 2, 32335}//,
-//          {"wolf", 2, 1, 13996}
+            {"blacksmith", 2, 2, 32335},
+          {"wolf", 2, 1, 16191}
         }		
     };
 
